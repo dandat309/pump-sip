@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Pump-sip-main"
-run/main_scene="res://cena_principal.tscn"
+run/main_scene="res://startscreen.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 

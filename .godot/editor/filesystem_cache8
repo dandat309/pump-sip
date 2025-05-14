@@ -1,6 +1,9 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1746750267
+::res://::1747263953
 cena_principal.gd::GDScript::-1::1746750248::0::1::::<>Node<>::
-cena_principal.tscn::PackedScene::153687756652139379::1746750248::0::1::::<><>::uid://cf6rxoryfnncu::::res://cena_principal.gd<>uid://djjuc3w7fbjyr::::res://icon.svg
+center_container.gd::GDScript::-1::1747263690::0::1::::<>CenterContainer<>::
 icon.svg::CompressedTexture2D::7810760461151438653::1746750248::1746750268::1::::<><>::
+jogo.tscn::PackedScene::153687756652139379::1747263967::0::1::::<><>::res://cena_principal.gd<>uid://djjuc3w7fbjyr::::res://icon.svg
+startscreen.gd::GDScript::-1::1747263786::0::1::::<>Control<>::
+startscreen.tscn::PackedScene::8892537167983912293::1747263786::0::1::::<><>::res://startscreen.gd<>uid://djjuc3w7fbjyr::::res://icon.svg
 ::res://pump-sip-main/::1746750248

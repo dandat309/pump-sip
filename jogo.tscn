@@ -1,10 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://cgphkol6xbg2"]
 
-[ext_resource type="Script" path="res://cena_principal.gd" id="1_l8ka6"]
-[ext_resource type="Texture2D" uid="uid://djjuc3w7fbjyr" path="res://icon.svg" id="2_64ge2"]
+[ext_resource type="Script" path="res://jogo.gd" id="1_7efko"]
+[ext_resource type="Texture2D" uid="uid://djjuc3w7fbjyr" path="res://icon.svg" id="2_6fons"]
 
-[node name="CenaPrincipal" type="Node2D"]
-script = ExtResource("1_l8ka6")
+[node name="jogo" type="Node2D"]
+script = ExtResource("1_7efko")
 
 [node name="rebirthlabel" type="Label" parent="."]
 offset_left = 623.0
@@ -53,10 +53,10 @@ offset_left = 297.0
 offset_top = 225.0
 offset_right = 433.0
 offset_bottom = 361.0
-icon = ExtResource("2_64ge2")
+icon = ExtResource("2_6fons")
 
 [node name="Icon" type="Sprite2D" parent="."]
 position = Vector2(535, 294)
-texture = ExtResource("2_64ge2")
+texture = ExtResource("2_6fons")
 
 [connection signal="pressed" from="Button2" to="." method="rec_energia"]
