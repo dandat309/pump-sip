@@ -60,3 +60,7 @@ func update_ui():
 	$Contadorlabel.text = "CLick: "+str(contador)
 	$rebirthlabel.text = "Rebirth: "+str(rebirth)
 	$nivellebal.text = "Lvl: "+ str(nivel)
+
+
+func _on_loja_pressed() -> void:
+	get_tree().change_scene_to_file("res://cenas/loja.tscn")

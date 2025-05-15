@@ -1,3 +1,7 @@
+TextureButton
+Sprite2D
+StaticBody2D
+VBoxContainer
+TextureRect
 CenterContainer
 Label
-TextureRect

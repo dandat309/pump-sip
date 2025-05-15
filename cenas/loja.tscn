@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://cwfj05q18ufm7"]
+
+[ext_resource type="Script" path="res://script/loja.gd" id="1_lpekh"]
+[ext_resource type="Texture2D" uid="uid://cvm6nt8ynodks" path="res://sprites/Gem_Harvest_-_1080p_29.jpg" id="2_n1ajj"]
+[ext_resource type="Texture2D" uid="uid://dqk65xp65ehrr" path="res://sprites/19_3fb9ea35-3540-4e25-a4c9-e2f8a493f453.jpg" id="3_56hjj"]
+[ext_resource type="Texture2D" uid="uid://rwmpmamid8u2" path="res://sprites/10_1200x.jpg" id="4_30e8q"]
+[ext_resource type="Texture2D" uid="uid://djjuc3w7fbjyr" path="res://sprites/icon.svg" id="5_meenj"]
+
+[node name="Loja" type="Node2D"]
+script = ExtResource("1_lpekh")
+
+[node name="cenario" type="Sprite2D" parent="."]
+position = Vector2(576, 322)
+scale = Vector2(0.96, 0.954444)
+texture = ExtResource("2_n1ajj")
+
+[node name="TextureButton" type="TextureButton" parent="cenario"]
+offset_left = -428.125
+offset_top = -257.742
+offset_right = 71.875
+offset_bottom = 242.258
+scale = Vector2(0.184547, 0.155791)
+texture_normal = ExtResource("3_56hjj")
+
+[node name="TextureButton2" type="TextureButton" parent="cenario"]
+offset_left = -281.25
+offset_top = -256.694
+offset_right = 218.75
+offset_bottom = 243.306
+scale = Vector2(0.182787, 0.15509)
+texture_normal = ExtResource("4_30e8q")
+
+[node name="voltar" type="TextureButton" parent="cenario"]
+offset_left = -123.958
+offset_top = -22.0024
+offset_right = 4.04172
+offset_bottom = 105.998
+scale = Vector2(0.585464, 0.550349)
+texture_normal = ExtResource("5_meenj")
+
+[connection signal="pressed" from="cenario/voltar" to="." method="_on_voltar_pressed"]
