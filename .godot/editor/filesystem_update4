@@ -1,13 +1,3 @@
-res://jogo.tscn
-res://startscreen.tscn
-res://jogo.gd
-res://loja.tscn
-res://loja.gd
-res://startscreen.gd
 res://cenas/loja.tscn
 res://cenas/startscreen.tscn
 res://cenas/jogo.tscn
-res://script/jogo.gd
-res://script/loja.gd
-res://script/startscreen.gd
-res://script/GameState.gd
