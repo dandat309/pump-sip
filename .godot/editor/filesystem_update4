@@ -1,3 +1,3 @@
+res://cenas/startscreen.tscn
 res://cenas/jogo.tscn
-res://script/startscreen.gd
-res://script/jogo_script.gd
+res://cenas/loja.tscn
