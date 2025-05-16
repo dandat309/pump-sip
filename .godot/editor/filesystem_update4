@@ -1,7 +1,3 @@
 res://cenas/jogo.tscn
-res://script/loja.gd
-res://cenas/startscreen.tscn
-res://cenas/loja.tscn
-res://script/jogo.gd
+res://script/startscreen.gd
 res://script/jogo_script.gd
-res://script/teste.gd
