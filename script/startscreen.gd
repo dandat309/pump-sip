@@ -5,4 +5,4 @@ func _input(event):
 		click()
 
 func click():
-	get_tree().change_scene_to_file("res://cenas/jogo.tscn")
+	get_tree().change_scene_to_file("res://cenas/mainscreen.tscn")

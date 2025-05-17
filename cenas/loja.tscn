@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://cwfj05q18ufm7"]
 
-[ext_resource type="Script" path="res://script/loja.gd" id="1_lpekh"]
+[ext_resource type="Script" uid="uid://ca351wa345yl8" path="res://script/loja.gd" id="1_lpekh"]
 [ext_resource type="Texture2D" uid="uid://cvm6nt8ynodks" path="res://sprites/Gem_Harvest_-_1080p_29.jpg" id="2_n1ajj"]
 [ext_resource type="Texture2D" uid="uid://dqk65xp65ehrr" path="res://sprites/19_3fb9ea35-3540-4e25-a4c9-e2f8a493f453.jpg" id="3_56hjj"]
 [ext_resource type="Texture2D" uid="uid://rwmpmamid8u2" path="res://sprites/10_1200x.jpg" id="4_30e8q"]

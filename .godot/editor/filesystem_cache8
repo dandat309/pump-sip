@@ -1,9 +1,9 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1747355531
-::res://cenas/::1747353901
-jogo.tscn::PackedScene::153687756652139379::1747351507::0::1::::<><>::res://script/jogo.gd<>uid://djjuc3w7fbjyr::::res://sprites/icon.svg
-loja.tscn::PackedScene::6327910515619321404::1747351257::0::1::::<><>::res://script/loja.gd<>uid://cvm6nt8ynodks::::res://sprites/Gem_Harvest_-_1080p_29.jpg<>uid://dqk65xp65ehrr::::res://sprites/19_3fb9ea35-3540-4e25-a4c9-e2f8a493f453.jpg<>uid://rwmpmamid8u2::::res://sprites/10_1200x.jpg<>uid://djjuc3w7fbjyr::::res://sprites/icon.svg
-startscreen.tscn::PackedScene::8892537167983912293::1747351257::0::1::::<><>::res://script/startscreen.gd<>uid://djjuc3w7fbjyr::::res://sprites/icon.svg
+::res://::1747428047
+::res://cenas/::1747355841
+jogo.tscn::PackedScene::153687756652139379::1747355550::0::1::::<><>::res://script/jogo.gd<>uid://djjuc3w7fbjyr::::res://sprites/icon.svg
+loja.tscn::PackedScene::6327910515619321404::1747355841::0::1::::<><>::res://script/loja.gd<>uid://cvm6nt8ynodks::::res://sprites/Gem_Harvest_-_1080p_29.jpg<>uid://dqk65xp65ehrr::::res://sprites/19_3fb9ea35-3540-4e25-a4c9-e2f8a493f453.jpg<>uid://rwmpmamid8u2::::res://sprites/10_1200x.jpg<>uid://djjuc3w7fbjyr::::res://sprites/icon.svg
+startscreen.tscn::PackedScene::8892537167983912293::1747355550::0::1::::<><>::res://script/startscreen.gd<>uid://djjuc3w7fbjyr::::res://sprites/icon.svg
 ::res://script/::1747355378
 center_container.gd::GDScript::-1::1747345215::0::1::::<>CenterContainer<>::
 global.gd::GDScript::-1::1747345215::0::1::::<>Node<>::

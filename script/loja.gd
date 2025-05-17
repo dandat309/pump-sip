@@ -17,7 +17,7 @@ func _on_BotaoCreatina_pressed() -> void:
 		atualizar_ui()
 
 func _on_voltar_pressed() -> void:
-	get_tree().change_scene_to_file("res://cenas/jogo.tscn")
+	get_tree().change_scene_to_file("res://cenas/mainscreen.tscn")
 
 func atualizar_ui() -> void:
 	$Moneylabel.text = "Coin: " + str(JogoScript.dinheiro)

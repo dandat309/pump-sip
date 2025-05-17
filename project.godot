@@ -12,13 +12,13 @@ config_version=5
 
 config/name="Pump-sip-main"
 run/main_scene="res://cenas/startscreen.tscn"
-config/features=PackedStringArray("4.3", "GL Compatibility")
+config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://sprites/icon.svg"
 
 [autoload]
 
 Global="*res://script/global.gd"
-JogoScript="*res://script/jogo_script.gd"
+JogoScript="*res://script/mainlogic.gd"
 
 [rendering]
 
