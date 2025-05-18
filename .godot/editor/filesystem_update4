@@ -1,9 +1,9 @@
-res://cenas/jogo.tscn
-res://cenas/mainscreen.tscn
 res://cenas/startscreen.tscn
+res://cenas/mainscreen.tscn
+res://cenas/loja.tscn
+res://cenas/game_over.tscn
+res://script/mainscreen.gd
+res://script/mainlogic.gd
+res://script/game_over.gd
 res://script/loja.gd
 res://script/startscreen.gd
-res://cenas/loja.tscn
-res://script/mainscreen.gd
-res://cenas/game_over.tscn
-res://cenas/game_over.gd

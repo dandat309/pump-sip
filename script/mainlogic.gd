@@ -10,6 +10,7 @@ var rebirth = 0
 var maxexp = 200
 var moddin = 1
 var modexp = 1
+
 func click():
 	if energia == 0:
 		return
@@ -35,3 +36,20 @@ func rec_energia():
 	if dinheiro >= 200:
 		dinheiro -= 200
 		energia += 10
+
+func gastar_dinheiro(valor):
+	if dinheiro >= valor:
+		dinheiro -= valor
+		return true
+	return false
+
+func usar_whey():
+	modexp = 2
+
+func usar_creatina():
+	modexp = 2
+	consuenergia = 2
+
+func reset_efeitos():
+	modexp = 1
+	consuenergia = 1

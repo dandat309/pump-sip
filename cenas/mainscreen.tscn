@@ -48,13 +48,6 @@ offset_right = 431.0
 offset_bottom = 121.0
 text = "CLick:"
 
-[node name="Button2" type="Button" parent="."]
-offset_left = 297.0
-offset_top = 225.0
-offset_right = 433.0
-offset_bottom = 361.0
-icon = ExtResource("2_voa87")
-
 [node name="loja" type="TextureButton" parent="."]
 offset_left = 768.0
 offset_top = 7.0
@@ -63,22 +56,21 @@ offset_bottom = 135.0
 scale = Vector2(0.331149, 0.343025)
 texture_normal = ExtResource("2_voa87")
 
-[node name="inactivity" type="Timer" parent="."]
-wait_time = 20.0
-autostart = true
-
 [node name="drinkButton" type="Button" parent="."]
 offset_left = 685.0
-offset_top = 225.0
+offset_top = 334.0
 offset_right = 782.0
-offset_bottom = 303.0
+offset_bottom = 412.0
 text = "Beber Água"
 icon = ExtResource("2_voa87")
 icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true
 
-[connection signal="pressed" from="Button2" to="." method="rec_energia"]
+[node name="inactivity" type="Timer" parent="."]
+wait_time = 20.0
+autostart = true
+
 [connection signal="pressed" from="loja" to="." method="_on_loja_pressed"]
-[connection signal="timeout" from="inactivity" to="." method="_on_inactivity_timeout"]
 [connection signal="pressed" from="drinkButton" to="." method="_on_drink_button_pressed"]
+[connection signal="timeout" from="inactivity" to="." method="_on_inactivity_timeout"]
