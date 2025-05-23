@@ -2,14 +2,18 @@ extends Node2D
 var tempo_restante = 0.0
 var efeito_ativo = false
 
+@onready var barraC = %BarraClique
+@onready var barraE = %energibar
 func _ready():
 	atualizar_ui()
 	get_node("/root/mainscreen")
+
+		
 func atualizar_ui():
 	$energylabel.text = "Energia: " + str(JogoScript.energia)
 	$Explabel.text = "Exp: " + str(JogoScript.experiencia)
 	$Moneylabel.text = "Coin: " + str(JogoScript.dinheiro)
-	$Contadorlabel.text = "Click: " + str(JogoScript.contador)
+	$Contadorlabel.text =  str(JogoScript.contador) + "/10"
 	$rebirthlabel.text = "Rebirth: " + str(JogoScript.rebirth)
 	$nivellebal.text = "Lvl: " + str(JogoScript.nivel)
 	if JogoScript.energia <= 0:
@@ -20,8 +24,14 @@ func atualizar_ui():
 func _input(event):
 	if event is InputEventMouseButton and event.pressed:
 		JogoScript.click()
+		barraC.value += 1
+		barraE.value -= 1
 		atualizar_ui()
 		$inactivity.start()
+	if barraC.value == 10:
+		%BarraClique.value = 0
+	if JogoScript.energia == 0:
+		%BarraClique.value = 0
 
 func _on_loja_pressed():
 	get_tree().change_scene_to_file("res://cenas/loja.tscn")
@@ -31,6 +41,7 @@ func _on_inactivity_timeout() -> void:
 
 func _on_drink_button_pressed() -> void:
 	JogoScript.energia = 100
+	%energibar.value = 100
 	atualizar_ui()
 	$inactivity.start()
 	$drinkButton.hide()
