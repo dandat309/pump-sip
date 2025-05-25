@@ -58,7 +58,7 @@ func usar_whey():
 
 func usar_creatina():
 	modexp = 2
-	consuenergia = 2
+	
 
 func reset_efeitos():
 	modexp = 1

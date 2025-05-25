@@ -20,6 +20,11 @@ config/icon="res://sprites/icon.svg"
 Global="*res://script/global.gd"
 JogoScript="*res://script/mainlogic.gd"
 
+[display]
+
+window/size/viewport_width=648
+window/size/viewport_height=1152
+
 [rendering]
 
 renderer/rendering_method="mobile"
