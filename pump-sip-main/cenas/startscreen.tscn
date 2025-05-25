@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://dyxu114huka26"]
+
+[ext_resource type="Script" uid="uid://bmejm2mja644" path="res://script/startscreen.gd" id="1_flttt"]
+[ext_resource type="Texture2D" uid="uid://djjuc3w7fbjyr" path="res://sprites/icon.svg" id="2_x0hhp"]
+
+[node name="startscreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_flttt")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 128.0
+grow_horizontal = 2
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer"]
+layout_mode = 2
+texture = ExtResource("2_x0hhp")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="CenterContainer/TextureRect"]
+layout_mode = 2
+offset_left = -2.0
+offset_top = 98.0
+offset_right = 138.0
+offset_bottom = 121.0
+text = "Clique para iniciar"

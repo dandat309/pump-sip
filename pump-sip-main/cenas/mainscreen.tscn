@@ -11,17 +11,17 @@ script = ExtResource("1_ud66o")
 
 [node name="BarraClique" type="ProgressBar" parent="."]
 unique_name_in_owner = true
-offset_left = 96.0
-offset_top = 1247.0
-offset_right = 641.0
-offset_bottom = 1274.0
+offset_left = 56.0
+offset_top = 1089.0
+offset_right = 601.0
+offset_bottom = 1116.0
 max_value = 10.0
 show_percentage = false
 
 [node name="rebirthlabel" type="Label" parent="."]
-offset_left = 304.0
+offset_left = 287.0
 offset_top = 97.0
-offset_right = 366.0
+offset_right = 349.0
 offset_bottom = 120.0
 text = "Rebirth:"
 
@@ -49,9 +49,9 @@ offset_bottom = 120.0
 text = "Exp:"
 
 [node name="Moneylabel" type="Label" parent="."]
-offset_left = 602.0
+offset_left = 535.0
 offset_top = 42.0
-offset_right = 659.0
+offset_right = 592.0
 offset_bottom = 65.0
 text = "Money:"
 
@@ -64,19 +64,19 @@ offset_bottom = 120.0
 text = "CLick:"
 
 [node name="loja" type="TextureButton" parent="."]
-offset_left = 96.0
-offset_top = 1098.0
-offset_right = 1120.0
-offset_bottom = 2122.0
+offset_left = 56.0
+offset_top = 934.0
+offset_right = 1080.0
+offset_bottom = 1958.0
 scale = Vector2(0.1, 0.1)
 texture_normal = ExtResource("2_ew27w")
 flip_h = true
 
 [node name="drinkButton" type="Button" parent="."]
-offset_left = 340.0
-offset_top = 1098.0
-offset_right = 1364.0
-offset_bottom = 2122.0
+offset_left = 287.0
+offset_top = 934.0
+offset_right = 1311.0
+offset_bottom = 1958.0
 scale = Vector2(0.1, 0.1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_ew27w")
 icon = ExtResource("3_nscqb")
@@ -92,16 +92,16 @@ autostart = true
 unique_name_in_owner = true
 offset_left = 148.0
 offset_top = 42.0
-offset_right = 535.0
+offset_right = 500.0
 offset_bottom = 69.0
 value = 100.0
 
 [node name="barraexp" type="ProgressBar" parent="."]
 unique_name_in_owner = true
-offset_left = 96.0
-offset_top = 1216.0
-offset_right = 641.0
-offset_bottom = 1243.0
+offset_left = 56.0
+offset_top = 1054.0
+offset_right = 601.0
+offset_bottom = 1081.0
 show_percentage = false
 
 [connection signal="pressed" from="loja" to="." method="_on_loja_pressed"]
