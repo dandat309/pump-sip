@@ -8,10 +8,10 @@ var efeito_ativo = false
 @onready var barraexp = %barraexp
 
 func _ready():
-	atualizar_ui()
-	get_node("/root/mainscreen")
-	barraexp.max_value = JogoScript.maxexp
+	barraE.value = JogoScript.energia
+	barraC.value = JogoScript.contador
 	barraexp.value = JogoScript.experiencia
+	atualizar_ui()
 
 func atualizar_ui():
 	$energylabel.text = "Energia: " + str(JogoScript.energia)

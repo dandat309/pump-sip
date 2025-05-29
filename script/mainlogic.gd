@@ -12,6 +12,9 @@ var moddin = 1
 var modexp = 1
 var max_contador = 10
 
+func _process(delta: float) -> void:
+	print(energia)
+
 func click():
 	if energia == 0:
 		return
