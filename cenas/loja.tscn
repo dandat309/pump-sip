@@ -1,0 +1,57 @@
+[gd_scene load_steps=6 format=3 uid="uid://cwfj05q18ufm7"]
+
+[ext_resource type="Script" uid="uid://ca351wa345yl8" path="res://script/loja.gd" id="1_lpekh"]
+[ext_resource type="Texture2D" uid="uid://cvm6nt8ynodks" path="res://sprites/Gem_Harvest_-_1080p_29.jpg" id="2_n1ajj"]
+[ext_resource type="Texture2D" uid="uid://dqk65xp65ehrr" path="res://sprites/19_3fb9ea35-3540-4e25-a4c9-e2f8a493f453.jpg" id="3_56hjj"]
+[ext_resource type="Texture2D" uid="uid://rwmpmamid8u2" path="res://sprites/10_1200x.jpg" id="4_30e8q"]
+[ext_resource type="Texture2D" uid="uid://djjuc3w7fbjyr" path="res://sprites/icon.svg" id="5_meenj"]
+
+[node name="Loja" type="Node2D"]
+script = ExtResource("1_lpekh")
+
+[node name="cenario" type="Sprite2D" parent="."]
+position = Vector2(564, 604.719)
+scale = Vector2(1.78333, 2.11935)
+texture = ExtResource("2_n1ajj")
+
+[node name="voltar" type="TextureButton" parent="cenario"]
+offset_left = -71.875
+offset_top = -159.255
+offset_right = 56.1247
+offset_bottom = -31.2546
+scale = Vector2(0.585464, 0.550349)
+texture_normal = ExtResource("5_meenj")
+
+[node name="Whey" type="Button" parent="."]
+offset_left = 58.0
+offset_top = 30.0
+offset_right = 195.0
+offset_bottom = 170.0
+text = "Boldenona - 300 coins"
+icon = ExtResource("4_30e8q")
+clip_text = true
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="Creatina" type="Button" parent="."]
+offset_left = 238.0
+offset_top = 30.0
+offset_right = 397.0
+offset_bottom = 174.0
+text = "Trembolona - 500 coins"
+icon = ExtResource("3_56hjj")
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="Moneylabel" type="Label" parent="."]
+offset_left = 620.0
+offset_top = 30.0
+offset_right = 660.0
+offset_bottom = 53.0
+theme_override_colors/font_color = Color(0, 0.577439, 0.557456, 1)
+
+[connection signal="pressed" from="cenario/voltar" to="." method="_on_voltar_pressed"]
+[connection signal="pressed" from="Whey" to="." method="_on_whey_pressed"]
+[connection signal="pressed" from="Creatina" to="." method="_on_creatina_pressed"]
