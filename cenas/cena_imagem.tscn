@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cfv2oaunvms0g"]
 
 [ext_resource type="Script" uid="uid://dyq2078cx7d5e" path="res://cena_imagem.gd" id="1_4qhsc"]
-[ext_resource type="Texture2D" uid="uid://c2ipaqb3kejev" path="res://sprites/braço.png" id="2_j1m78"]
+[ext_resource type="Texture2D" uid="uid://c2ipaqb3kejev" path="res://sprites/brao.png" id="2_j1m78"]
 
 [node name="CenaImagem" type="Node2D"]
 script = ExtResource("1_4qhsc")

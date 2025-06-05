@@ -28,7 +28,10 @@ func atualizar_ui():
 
 	barraexp.max_value = JogoScript.maxexp
 	barraexp.value = JogoScript.experiencia
-
+	if JogoScript.nivel >= 50:
+		$rebirthbut.show()
+	else:
+		$rebirthbut.hide()
 	if JogoScript.energia <= 0:
 		$drinkButton.show()
 	else:
@@ -41,6 +44,7 @@ func _input(event):
 		barraE.value -= 1
 		atualizar_ui()
 		$inactivity.start()
+		$player.play("flexao")
 		water_spray.global_position = event.position
 		water_spray.emitting = false  # para reiniciar emissão
 		water_spray.emitting = true   # dispara emissão
@@ -97,7 +101,7 @@ func _on_drink_button_pressed() -> void:
 
 func _on_anima_animation_finished():
 	$anima.stop()
-
+	$player.stop()
 func iniciar_efeito(duracao):
 	tempo_restante = duracao
 	efeito_ativo = true
@@ -110,3 +114,13 @@ func _process(delta):
 		if tempo_restante <= 0:
 			efeito_ativo = false
 			$efeitolabel.hide()
+
+func rebirt():
+	if JogoScript.nivel % 50 == 0 and JogoScript.nivel != 0:
+		JogoScript.rebirth  += 1
+		JogoScript.nivel = 0
+		JogoScript.dinheiro = 0
+		JogoScript.experiencia  = 0
+		JogoScript.maxexp = 200
+		JogoScript.moddin += 1
+		JogoScript.modexp += 1
