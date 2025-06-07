@@ -11,6 +11,14 @@ var maxexp = 200
 var moddin = 1
 var modexp = 1
 var max_contador = 10
+var ganhaexp = 100
+
+
+func get_totalexp() -> int:
+	return ganhaexp * modexp
+
+func _process(delta: float) -> void:
+	print(energia)
 
 func click():
 	if energia == 0:
@@ -26,17 +34,9 @@ func click():
 
 	if contador >= 10:
 		dinheiro += 100 * moddin
-		experiencia += 100 * modexp
+		experiencia += get_totalexp()
 		contador = 0
 
-	if nivel % 3 == 0 and nivel != 0:
-		rebirth += 1
-		nivel = 0
-		dinheiro = 0
-		experiencia = 0
-		maxexp = 200
-		moddin += 1
-		modexp += 1
 
 
 func rec_energia():
@@ -54,10 +54,10 @@ func gastar_dinheiro(valor):
 	return false
 
 func usar_whey():
-	modexp = 2
+	modexp = 5
 
 func usar_creatina():
-	modexp = 2
+	modexp = 10
 	
 
 func reset_efeitos():

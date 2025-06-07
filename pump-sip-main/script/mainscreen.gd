@@ -2,16 +2,23 @@ extends Node2D
 
 var tempo_restante = 0.0
 var efeito_ativo = false
-
+var backloja = preload("res://cenas/loja.tscn")
+var ImageScene = preload("res://cenas/cena_imagem.tscn")
+var can_spawn := true
+var can_spawnback := true
+var next_number := 1
+var experiencia_anterior := -1
+@onready var water_spray = $WaterSpray
 @onready var barraC = %BarraClique
 @onready var barraE = %energibar
 @onready var barraexp = %barraexp
 
 func _ready():
-	atualizar_ui()
-	get_node("/root/mainscreen")
-	barraexp.max_value = JogoScript.maxexp
+	barraE.value = JogoScript.energia
+	barraC.value = JogoScript.contador
 	barraexp.value = JogoScript.experiencia
+	randomize()
+	atualizar_ui()
 
 func atualizar_ui():
 	$energylabel.text = "Energia: " + str(JogoScript.energia)
@@ -21,10 +28,12 @@ func atualizar_ui():
 	$rebirthlabel.text = "Rebirth: " + str(JogoScript.rebirth)
 	$nivellebal.text = "Lvl: " + str(JogoScript.nivel)
 
-	# Atualiza a barra de experiência
 	barraexp.max_value = JogoScript.maxexp
 	barraexp.value = JogoScript.experiencia
-
+	if JogoScript.nivel >= 50:
+		$rebirthbut.show()
+	else:
+		$rebirthbut.hide()
 	if JogoScript.energia <= 0:
 		$drinkButton.show()
 	else:
@@ -37,12 +46,55 @@ func _input(event):
 		barraE.value -= 1
 		atualizar_ui()
 		$inactivity.start()
+		$player.play("flexao")
+		water_spray.global_position = event.position
+		water_spray.emitting = false  # para reiniciar emissão
+		water_spray.emitting = true   # dispara emissão
+		if JogoScript.experiencia != experiencia_anterior:
+			experiencia_anterior = JogoScript.get_totalexp()
+			spawn_image()
 
-	if barraC.value == 10 or JogoScript.energia == 0:
-		barraC.value = 0
+		if barraC.value == 10 or JogoScript.energia == 0:
+			barraC.value = 0
+
+func spawn_image():
+	if not can_spawn:
+		return  
+
+	can_spawn = false
+
+	await get_tree().create_timer(0.5).timeout  
+
+	var instance = ImageScene.instantiate()
+	add_child(instance)
+
+	# Posição aleatória na tela
+	var screen_size = get_viewport().get_visible_rect().size
+	instance.position = Vector2(
+		randi() % int(screen_size.x / 2),
+		randi() % int(screen_size.y / 2)
+	)
+
+	
+	instance.set_number(next_number)
+	next_number = JogoScript.get_totalexp()
+
+	
+	await get_tree().create_timer(1.5).timeout
+	if instance and instance.is_inside_tree():
+		instance.queue_free()
+
+	can_spawn = true
 
 func _on_loja_pressed():
-	get_tree().change_scene_to_file("res://cenas/loja.tscn")
+	if not can_spawnback:
+		return  
+	can_spawn = false
+	
+	await get_tree().create_timer(0.5).timeout  
+
+	var instance = backloja.instantiate()
+	add_child(instance)
 
 func _on_inactivity_timeout() -> void:
 	get_tree().change_scene_to_file("res://cenas/game_over.tscn")
@@ -53,7 +105,12 @@ func _on_drink_button_pressed() -> void:
 	atualizar_ui()
 	$inactivity.start()
 	$drinkButton.hide()
+	$anima.play("beber")
+	
 
+func _on_anima_animation_finished():
+	$anima.stop()
+	$player.stop()
 func iniciar_efeito(duracao):
 	tempo_restante = duracao
 	efeito_ativo = true
@@ -66,3 +123,13 @@ func _process(delta):
 		if tempo_restante <= 0:
 			efeito_ativo = false
 			$efeitolabel.hide()
+
+func rebirt():
+	if JogoScript.nivel % 50 == 0 and JogoScript.nivel != 0:
+		JogoScript.rebirth  += 1
+		JogoScript.nivel = 0
+		JogoScript.dinheiro = 0
+		JogoScript.experiencia  = 0
+		JogoScript.maxexp = 200
+		JogoScript.moddin += 1
+		JogoScript.modexp += 1

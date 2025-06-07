@@ -1,4 +1,5 @@
 extends Node2D
+
 func _process(delta):
 	atualizar_ui()
 	
@@ -23,4 +24,4 @@ func _on_voltar_pressed() -> void:
 	get_tree().change_scene_to_file("res://cenas/mainscreen.tscn")
 
 func atualizar_ui() -> void:
-	$Moneylabel.text = "Coin: " + str(JogoScript.dinheiro)
+	print(JogoScript.dinheiro)
