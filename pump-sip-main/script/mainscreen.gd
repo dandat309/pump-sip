@@ -27,35 +27,41 @@ func atualizar_ui():
 	$Contadorlabel.text = str(JogoScript.contador) + "/10"
 	$rebirthlabel.text = "Rebirth: " + str(JogoScript.rebirth)
 	$nivellebal.text = "Lvl: " + str(JogoScript.nivel)
-
+	$REB.text = "REBIRTH"
+	
+	
 	barraexp.max_value = JogoScript.maxexp
 	barraexp.value = JogoScript.experiencia
-	if JogoScript.nivel >= 50:
+	if JogoScript.nivel == JogoScript.maxlvl:
+		$REB.show()
 		$rebirthbut.show()
+		$inactivity.stop()
 	else:
+		$REB.hide()
 		$rebirthbut.hide()
 	if JogoScript.energia <= 0:
 		$drinkButton.show()
+		$player.stop()
 	else:
 		$drinkButton.hide()
 
 func _input(event):
 	if event is InputEventMouseButton and event.pressed:
-		JogoScript.click()
-		barraC.value += 1
-		barraE.value -= 1
-		atualizar_ui()
-		$inactivity.start()
-		$player.play("flexao")
-		water_spray.global_position = event.position
-		water_spray.emitting = false  # para reiniciar emissão
-		water_spray.emitting = true   # dispara emissão
-		if JogoScript.experiencia != experiencia_anterior:
-			experiencia_anterior = JogoScript.get_totalexp()
-			spawn_image()
-
-		if barraC.value == 10 or JogoScript.energia == 0:
-			barraC.value = 0
+		if JogoScript.nivel < JogoScript.maxlvl: 
+			JogoScript.click()
+			barraC.value += 1
+			barraE.value -= 1
+			$player.play("flexao")
+			water_spray.global_position = event.position
+			water_spray.emitting = false  # para reiniciar emissão
+			water_spray.emitting = true   # dispara emissão
+			if JogoScript.experiencia != experiencia_anterior:
+				experiencia_anterior = JogoScript.get_totalexp()
+				spawn_image()
+			atualizar_ui()
+			$inactivity.start()
+			if barraC.value == 10 or JogoScript.energia == 0:
+				barraC.value = 0
 
 func spawn_image():
 	if not can_spawn:
@@ -125,9 +131,10 @@ func _process(delta):
 			$efeitolabel.hide()
 
 func rebirt():
-	if JogoScript.nivel % 50 == 0 and JogoScript.nivel != 0:
+	if JogoScript.nivel % JogoScript.maxlvl == 0 and JogoScript.nivel != 0:
 		JogoScript.rebirth  += 1
 		JogoScript.nivel = 0
+		JogoScript.maxlvl += 5
 		JogoScript.dinheiro = 0
 		JogoScript.experiencia  = 0
 		JogoScript.maxexp = 200

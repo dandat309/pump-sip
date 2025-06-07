@@ -1,6 +1,6 @@
 extends Node2D
 
-func _process(delta):
+func _process(_delta):
 	atualizar_ui()
 	
 func _on_whey_pressed() -> void:

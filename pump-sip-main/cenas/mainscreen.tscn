@@ -3,12 +3,12 @@
 [ext_resource type="Script" uid="uid://oifg0g2g74m6" path="res://script/mainscreen.gd" id="1_ud66o"]
 [ext_resource type="Texture2D" uid="uid://1bgjisk4ftx" path="res://sprites/aguapertodaboca.png" id="2_nscqb"]
 [ext_resource type="Texture2D" uid="uid://uiksoacpjxt7" path="res://sprites/cenario sala dia.jpg" id="2_qxva6"]
-[ext_resource type="Texture2D" uid="uid://gxuy3lkm1ol6" path="res://sprites/bebendo agua.png" id="3_fhmt4"]
+[ext_resource type="Texture2D" uid="uid://gxuy3lkm1ol6" path="res://sprites/bebendoagua.png" id="3_fhmt4"]
 [ext_resource type="Texture2D" uid="uid://bo6e1p22dgro5" path="res://sprites/boneco flex reto vetorizada2.png" id="3_n1vcb"]
 [ext_resource type="Texture2D" uid="uid://das60a3lh311p" path="res://sprites/garrafa.png" id="3_nscqb"]
 [ext_resource type="Texture2D" uid="uid://dfbfnddvdl8l" path="res://sprites/boneco flex vetorizada.png" id="4_bykbo"]
-[ext_resource type="Texture2D" uid="uid://djjuc3w7fbjyr" path="res://sprites/icon.svg" id="6_fhmt4"]
 [ext_resource type="Texture2D" uid="uid://dv1al4a11uwbv" path="res://sprites/shop.png" id="7_bwl8f"]
+[ext_resource type="Texture2D" uid="uid://essobyk0vrbe" path="res://sprites/Reb.png" id="9_bwl8f"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_yth3l"]
 animations = [{
@@ -190,15 +190,25 @@ scale_amount_min = 3.0
 scale_amount_max = 3.0
 
 [node name="rebirthbut" type="Button" parent="."]
-offset_left = 287.0
-offset_top = 120.0
-offset_right = 383.0
-offset_bottom = 212.0
-icon = ExtResource("6_fhmt4")
+offset_left = 592.0
+offset_top = 117.0
+offset_right = 1915.0
+offset_bottom = 1508.0
+scale = Vector2(0.1, 0.1)
+action_mode = 0
+icon = ExtResource("9_bwl8f")
+flat = true
+
+[node name="REB" type="Label" parent="."]
+offset_left = 629.0
+offset_top = 175.0
+offset_right = 695.0
+offset_bottom = 198.0
+text = "REBIRTH"
 
 [connection signal="animation_finished" from="player" to="." method="_on_anima_animation_finished"]
-[connection signal="animation_finished" from="anima" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="animation_finished" from="anima" to="." method="_on_animacap_animation_finished"]
+[connection signal="animation_finished" from="anima" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="pressed" from="loja" to="." method="_on_loja_pressed"]
 [connection signal="pressed" from="drinkButton" to="." method="_on_drink_button_pressed"]
 [connection signal="timeout" from="inactivity" to="." method="_on_inactivity_timeout"]

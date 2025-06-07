@@ -6,6 +6,7 @@ var energia = 100
 var consuenergia = 1
 var experiencia = 0
 var nivel = 1
+var maxlvl = 3
 var rebirth = 0
 var maxexp = 200
 var moddin = 1
@@ -17,7 +18,7 @@ var ganhaexp = 100
 func get_totalexp() -> int:
 	return ganhaexp * modexp
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	print(energia)
 
 func click():
