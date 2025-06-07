@@ -1,5 +1,6 @@
 extends Node2D
 
+var save = "user://arquivo.save"
 var tempo_restante = 0.0
 var efeito_ativo = false
 var backloja = preload("res://cenas/loja.tscn")
@@ -18,6 +19,7 @@ func _ready():
 	barraC.value = JogoScript.contador
 	barraexp.value = JogoScript.experiencia
 	randomize()
+	load_data()
 	atualizar_ui()
 
 func atualizar_ui():
@@ -49,6 +51,7 @@ func atualizar_ui():
 
 func _input(event):
 	if event is InputEventMouseButton and event.pressed:
+		_save()
 		if JogoScript.nivel < JogoScript.maxlvl: 
 			JogoScript.click()
 			barraC.value += 1
@@ -142,3 +145,30 @@ func rebirt():
 		JogoScript.maxexp = 200
 		JogoScript.moddin += 1
 		JogoScript.modexp += 1
+		
+func _save():
+	var file = FileAccess.open(save, FileAccess.WRITE)
+	file.store_var(JogoScript.dinheiro)
+	file.store_var(JogoScript.experiencia)
+	file.store_var(JogoScript.nivel)
+	file.store_var(JogoScript.rebirth)
+	file.store_var(JogoScript.energia)
+	file.store_var(JogoScript.maxexp)
+	file.store_var(JogoScript.maxlvl)
+	
+func load_data():
+	if FileAccess.file_exists(save):
+		var file = FileAccess.open(save, FileAccess.READ)
+		JogoScript.dinheiro = file.get_var(JogoScript.dinheiro)
+		JogoScript.maxexp = file.get_var(JogoScript.maxexp)
+		JogoScript.maxlvl = file.get_var(JogoScript.maxlvl)
+		JogoScript.experiencia = file.get_var(JogoScript.experiencia)
+		JogoScript.nivel =file.get_var(JogoScript.nivel)
+		JogoScript.rebirth =file.get_var(JogoScript.rebirth)
+
+	else:
+		print("nada salvo")
+		JogoScript.dinheiro = JogoScript.dinheiro
+		JogoScript.experiencia = JogoScript.experiencia
+		JogoScript.nivel = JogoScript.nivel
+		JogoScript.rebirth = JogoScript.rebirth

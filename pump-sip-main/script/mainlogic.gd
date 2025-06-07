@@ -1,5 +1,6 @@
 extends Node
 
+
 var contador = 0
 var dinheiro = 0
 var energia = 100
@@ -64,3 +65,6 @@ func usar_creatina():
 func reset_efeitos():
 	modexp = 1
 	consuenergia = 1
+	
+
+	
