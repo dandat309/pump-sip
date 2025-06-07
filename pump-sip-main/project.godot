@@ -23,10 +23,10 @@ JogoScript="*res://script/mainlogic.gd"
 [display]
 
 window/size/viewport_width=720
-window/size/viewport_height=1280
-window/size/mode=3
+window/size/viewport_height=1270
+window/size/window_width_override=360
+window/size/window_height_override=640
 window/stretch/mode="canvas_items"
-window/stretch/aspect="keep_width"
 window/handheld/orientation=1
 
 [rendering]

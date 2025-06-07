@@ -29,6 +29,8 @@ func atualizar_ui():
 	$nivellebal.text = "Lvl: " + str(JogoScript.nivel)
 	$REB.text = "REBIRTH"
 	
+
+
 	
 	barraexp.max_value = JogoScript.maxexp
 	barraexp.value = JogoScript.experiencia
