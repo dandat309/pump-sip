@@ -4,7 +4,6 @@ extends Node2D
 var tempo_restante = 0.0
 var efeito_ativo = false
 var backloja = preload("res://cenas/loja.tscn")
-var ImageScene = preload("res://cenas/cena_imagem.tscn")
 var can_spawn := true
 var can_spawnback := true
 var next_number := 1
@@ -13,27 +12,38 @@ var experiencia_anterior := -1
 @onready var barraC = %BarraClique
 @onready var barraE = %energibar
 @onready var barraexp = %barraexp
-
+var instancia
+var ganhadin
 func _ready():
 	barraE.value = JogoScript.energia
 	barraC.value = JogoScript.contador
 	barraexp.value = JogoScript.experiencia
 	carregar_jogo()
-	randomize()
+	
+	
 	atualizar_ui()
 	
+func animaDin():
+	$Ganhodin.show()
+	var GShow = create_tween()
+	GShow.parallel().tween_property($Ganhodin, "position:y", 300, 2).set_ease(Tween.EASE_OUT)
+	GShow.parallel().tween_property($Ganhodin, "modulate:a", 0, 2)
 
 func atualizar_ui():
 	$energylabel.text = "Energia: " + str(JogoScript.energia)
-	$Explabel.text = "Exp: " + str(JogoScript.experiencia)
+	$Ganhodin.text = str(JogoScript.ganhardin)
 	$Moneylabel.text = "Coin: " + str(JogoScript.dinheiro)
 	$Contadorlabel.text = str(JogoScript.contador) + "/10"
 	$rebirthlabel.text = "Rebirth: " + str(JogoScript.rebirth)
 	$nivellebal.text = "Lvl: " + str(JogoScript.nivel)
 	$REB.text = "REBIRTH"
-	
-	
 
+	
+	
+	if JogoScript.contador >= 9:
+		animaDin()
+	else: 
+		$Ganhodin.hide()
 	
 	barraexp.max_value = JogoScript.maxexp
 	barraexp.value = JogoScript.experiencia
@@ -50,6 +60,7 @@ func atualizar_ui():
 	else:
 		$drinkButton.hide()
 
+
 func _input(event):
 	if event is InputEventMouseButton and event.pressed:
 		salvar_jogo()
@@ -63,50 +74,14 @@ func _input(event):
 			water_spray.emitting = true   # dispara emissão
 			if JogoScript.experiencia != experiencia_anterior:
 				experiencia_anterior = JogoScript.get_totalexp()
-				spawn_image()
 			atualizar_ui()
 			$inactivity.start()
 			if barraC.value == 10 or JogoScript.energia == 0:
 				barraC.value = 0
 
-func spawn_image():
-	if not can_spawn:
-		return  
-
-	can_spawn = false
-
-	await get_tree().create_timer(0.5).timeout  
-
-	var instance = ImageScene.instantiate()
-	add_child(instance)
-
-	# Posição aleatória na tela
-	var screen_size = get_viewport().get_visible_rect().size
-	instance.position = Vector2(
-		randi() % int(screen_size.x / 2),
-		randi() % int(screen_size.y / 2)
-	)
-
-	
-	instance.set_number(next_number)
-	next_number = JogoScript.get_totalexp()
-
-	
-	await get_tree().create_timer(1.5).timeout
-	if instance and instance.is_inside_tree():
-		instance.queue_free()
-
-	can_spawn = true
-
 func _on_loja_pressed():
-	if not can_spawnback:
-		return  
-	can_spawn = false
+	animaTween()
 	
-	await get_tree().create_timer(0.5).timeout  
-
-	var instance = backloja.instantiate()
-	add_child(instance)
 
 func _on_inactivity_timeout() -> void:
 	get_tree().change_scene_to_file("res://cenas/game_over.tscn")
@@ -172,3 +147,16 @@ func carregar_jogo():
 			JogoScript.nivel = dados["lvl"]
 			JogoScript.experiencia = dados["exp"]
 			JogoScript.rebirth = dados["rebirth"]
+
+func animaTween():
+	if instancia == null:
+		instancia = backloja.instantiate()
+		add_child(instancia)
+		instancia.fechar_loja.connect(_on_fechar_loja)
+	var open = create_tween()
+	open.tween_property(instancia, "position", Vector2(0, -530), 0.7).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_ELASTIC)
+	
+	
+func _on_fechar_loja():
+	var tween = create_tween()
+	tween.tween_property(instancia, "position", Vector2(0, 530), 0.7).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_ELASTIC)

@@ -138,12 +138,13 @@ offset_right = 340.0
 offset_bottom = 42.0
 text = "Energi:"
 
-[node name="Explabel" type="Label" parent="."]
-visible = false
-offset_left = 264.0
-offset_top = 97.0
-offset_right = 304.0
-offset_bottom = 120.0
+[node name="Ganhodin" type="Label" parent="."]
+offset_left = 141.0
+offset_top = 739.0
+offset_right = 174.0
+offset_bottom = 762.0
+scale = Vector2(1.5, 1.5)
+theme_override_colors/font_color = Color(0.764804, 0.550868, 7.70092e-07, 1)
 text = "Exp:"
 
 [node name="Moneylabel" type="Label" parent="."]

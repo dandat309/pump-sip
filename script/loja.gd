@@ -1,4 +1,14 @@
 extends Node2D
+@onready var backloja = preload("res://cenas/loja.tscn")
+signal fechar_loja
+@onready var botao_fechar = $TextureRect/voltar
+func _ready():
+	botao_fechar.pressed.connect(_on_botao_fechar_pressed)
+	
+	
+func _on_botao_fechar_pressed():
+	emit_signal("fechar_loja")
+	
 
 func _process(_delta):
 	atualizar_ui()
@@ -20,8 +30,9 @@ func _on_creatina_pressed() -> void:
 		atualizar_ui()
 
 
-func _on_voltar_pressed() -> void:
-	get_tree().change_scene_to_file("res://cenas/mainscreen.tscn")
+
+
 
 func atualizar_ui() -> void:
 	print(JogoScript.dinheiro)
+	

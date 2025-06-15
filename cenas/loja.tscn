@@ -11,9 +11,9 @@ script = ExtResource("1_lpekh")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_left = -209.0
-offset_top = 237.0
+offset_top = 764.0
 offset_right = 2617.0
-offset_bottom = 3745.0
+offset_bottom = 4272.0
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("2_uux2s")
 

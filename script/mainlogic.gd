@@ -14,6 +14,7 @@ var moddin = 1
 var modexp = 1
 var max_contador = 10
 var ganhaexp = 100
+var ganhardin = 100
 
 
 func get_totalexp() -> int:
@@ -35,7 +36,7 @@ func click():
 		maxexp *= 2
 
 	if contador >= 10:
-		dinheiro += 100 * moddin
+		dinheiro += ganhardin * moddin
 		experiencia += get_totalexp()
 		contador = 0
 
